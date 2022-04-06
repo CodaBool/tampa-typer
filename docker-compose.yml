@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:5.0.6
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+  express:
+    container_name: express
+    restart: unless-stopped
+    build: .
+    environment:
+      - MONGO_URI=mongodb://root:rootpassword@mongo:27017/game?authSource=admin
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+
+volumes:
+  db:
