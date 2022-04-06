@@ -41,13 +41,9 @@ ____________________________________
 
 `terraform init`
 
-`terraform plan`
-
 `terraform apply -auto-approve` (30s)
 
 `cd ..`
-
-`ls -a | grep -e do -e Do`
 
 `docker build -t tampa-typer:latest .`
 
@@ -55,12 +51,10 @@ ____________________________________
 
 `terraform init`
 
-`terraform plan`
-
 `terraform apply -auto-approve` (5m)
 
 #### Bonus
-`docker run --env-file ./.env --name typer -d -p 3000:3000 tampa-typer`
+`docker run --env-file ./.env --name typer -d -p 80:3000 tampa-typer`
 
 `docker container stop typer`
 

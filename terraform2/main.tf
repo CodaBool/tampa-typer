@@ -122,7 +122,7 @@ resource "aws_ecs_service" "tampadev" {
   cluster          = aws_ecs_cluster.tampadev.id
   task_definition  = aws_ecs_task_definition.tampadev.arn
   launch_type      = "FARGATE"
-  desired_count    = 1
+  desired_count    = 2
   load_balancer {
     target_group_arn = aws_lb_target_group.tampadev.arn
     container_name   = "tampa-typer"
